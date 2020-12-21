@@ -75,14 +75,47 @@ def play_game(p1, p2):
         if(p1.healthPoint <= 0):
             print(p1.name + ' is KO')
             print('The winner is ' + p2.name)
-            
+            break
         elif(p2.healthPoint <= 0):
             print(p2.name + ' is KO')
             print('The winner is ' + p1.name)
-
+            break
+    return
 
 # Main Program
-raven = Knight('Raven')
-ezio = Assassin('Ezio')
-darkWizard = Mage('Dark Wizard')
-play_game(raven, ezio)
+print('''
+      Player 1
+      1. Knight
+      2. Assassin
+      3. Mage
+      ''')
+type = input('Choose your type: ')
+name = input('Type your name: ')
+if(type == 1):
+    player1 = Knight(name)
+elif(type == 2):
+    player1 = Assassin(name)
+elif(type == 3):
+    player1 = Mage(name)
+else:
+    player1 = Knight(name)
+
+print('''
+      Player 2
+      1. Knight
+      2. Assassin
+      3. Mage
+      ''')
+type = input('Choose your type: ')
+name = input('Type your name: ')
+if(type == 1):
+    player2 = Knight(name)
+elif(type == 2):
+    player2 = Assassin(name)
+elif(type == 3):
+    player2 = Mage(name)
+else:
+    player2 = Knight(name)
+
+# =========Game Start!!!!==========
+play_game(player1, player2)
